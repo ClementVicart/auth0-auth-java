@@ -5,12 +5,11 @@ package com.auth0.cache;
  * OIDC discovery metadata and JWKS providers.
  * <p>
  * The SDK ships with a default in-memory LRU implementation
- * ({@link InMemoryAuthCache}). Developers can implement this interface
+ * ({@link InMemoryAuthCache}). Users can implement this interface
  * to plug in distributed cache backends (e.g., Redis, Memcached) without
  * breaking changes to the SDK's public API.
  * </p>
  *
- * <h3>Unified cache with key prefixes</h3>
  * <p>
  * A single {@code AuthCache<Object>} instance can serve as a unified cache
  * for both discovery metadata and JWKS providers by using key prefixes:

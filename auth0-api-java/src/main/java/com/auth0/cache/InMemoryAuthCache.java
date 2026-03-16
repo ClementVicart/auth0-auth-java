@@ -61,7 +61,7 @@ public class InMemoryAuthCache<V> implements AuthCache<V> {
             throw new IllegalArgumentException("ttlSeconds must not be negative");
         }
         this.ttlMillis = ttlSeconds * 1000;
-        // accessOrder=true makes LinkedHashMap maintain LRU order
+
         this.store = new LinkedHashMap<String, CacheEntry<V>>(maxEntries, 0.75f, true) {
             @Override
             protected boolean removeEldestEntry(Map.Entry<String, CacheEntry<V>> eldest) {
@@ -130,7 +130,7 @@ public class InMemoryAuthCache<V> implements AuthCache<V> {
 
     private boolean isExpired(CacheEntry<V> entry) {
         if (ttlMillis == 0) {
-            return false; // TTL of 0 means no expiration
+            return false;
         }
         return (System.currentTimeMillis() - entry.createdAt) > ttlMillis;
     }

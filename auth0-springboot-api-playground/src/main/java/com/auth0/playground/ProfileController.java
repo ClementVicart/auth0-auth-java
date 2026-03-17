@@ -1,7 +1,7 @@
 package com.auth0.playground;
 
-import org.springframework.http.ResponseEntity;
 import com.auth0.spring.boot.Auth0AuthenticationToken;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ public class ProfileController {
 
     @GetMapping("/protected")
     public ResponseEntity<Map<String, Object>> protectedEndpoint(Authentication authentication) {
-        String userId = authentication.getName(); // Returns the 'sub' claim
+        String userId = authentication.getName();
 
         return ResponseEntity.ok(Map.of(
                 "message", "Access granted!",

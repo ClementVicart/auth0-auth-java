@@ -4,21 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * Provides request context to the {@link com.auth0.DomainResolver} for dynamic
- * issuer resolution.
- * <p>
- * This is the "silver platter" passed to the developer's resolver function,
- * containing all the
- * data needed to make a routing decision in multi-custom-domain scenarios.
- * </p>
- *
- * <ul>
- * <li>{@code url} — The URL the API request was made to</li>
- * <li>{@code headers} — Relevant request headers (e.g., Host,
- * X-Forwarded-Host)</li>
- * <li>{@code tokenIssuer} — The <b>unverified</b> {@code iss} claim extracted
- * from the incoming JWT</li>
- * </ul>
+ * Contextual information about the incoming API request, provided to the domain resolver.
  */
 public class RequestContext {
 
@@ -54,12 +40,6 @@ public class RequestContext {
 
     /**
      * Returns the unverified {@code iss} claim from the incoming JWT.
-     * <p>
-     * <b>Warning:</b> This value has NOT been verified yet. It is provided so the
-     * resolver
-     * can use it as a hint for routing decisions, but it must not be trusted on its
-     * own.
-     * </p>
      *
      * @return the unverified token issuer, or {@code null} if not available
      */

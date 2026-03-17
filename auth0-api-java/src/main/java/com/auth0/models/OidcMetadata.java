@@ -1,16 +1,7 @@
 package com.auth0.models;
 
 /**
- * Represents the relevant fields from an OIDC Discovery document
- * ({@code .well-known/openid-configuration}).
- * <p>
- * Only the fields required for JWT validation are extracted:
- * <ul>
- * <li>{@code issuer} — the canonical issuer identifier (used for
- * double-validation)</li>
- * <li>{@code jwks_uri} — the URL of the JSON Web Key Set (used to fetch signing
- * keys)</li>
- * </ul>
+ * Represents the relevant fields from the OIDC discovery document.
  */
 public class OidcMetadata {
 

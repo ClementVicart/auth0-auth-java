@@ -229,8 +229,7 @@ public class AuthOptions {
         }
 
         /**
-         * Sets a custom cache implementation for both OIDC discovery metadata
-         * and JWKS providers.
+         * Sets a custom cache implementation for both OIDC discovery metadata and JWKS providers.
          * <p>
          * The cache uses a unified key-prefix scheme:
          * <ul>
@@ -251,13 +250,11 @@ public class AuthOptions {
         }
 
         public AuthOptions build() {
-            // Mutual exclusivity: domains and domainsResolver cannot both be set
             if (domains != null && !domains.isEmpty() && domainsResolver != null) {
                 throw new IllegalArgumentException(
                         "Cannot configure both 'domains' and 'domainsResolver'. Use one or the other.");
             }
 
-            // At least one domain source must be provided
             boolean hasDomain = domain != null && !domain.isEmpty();
             boolean hasDomains = domains != null && !domains.isEmpty();
             boolean hasResolver = domainsResolver != null;

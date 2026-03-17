@@ -133,11 +133,9 @@ class JWTValidator {
 
             List<String> allowedDomains = resolveAllowedDomains(tokenIss, httpRequestInfo);
 
-            // Normalize the token issuer and allowed domains for consistent comparison
             String normalizedIss = normalizeToUrl(tokenIss);
             if (!allowedDomains.contains(normalizedIss)) {
-                throw new VerifyAccessTokenException(
-                        String.format("Token issuer '%s' is not in the allowed list: %s"));
+                throw new VerifyAccessTokenException("Token issuer is not in the allowed list");
             }
 
             OidcMetadata discovery = performOidcDiscovery(tokenIss);

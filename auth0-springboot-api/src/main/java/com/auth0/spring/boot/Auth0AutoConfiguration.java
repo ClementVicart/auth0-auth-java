@@ -10,32 +10,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-/**
- * Autoconfiguration for Auth0 authentication and JWT validation.
- *
- * <p>Supports three domain configuration modes (mutually exclusive):
- *
- * <ol>
- *   <li><b>Single domain</b> — set {@code auth0.domain} in YAML
- *   <li><b>Static MCD list</b> — set {@code auth0.domains} in YAML
- *   <li><b>Dynamic resolver</b> — define a {@link DomainResolver} bean
- * </ol>
- *
- * Dynamic Domain Resolver
- *
- * <p>To dynamically resolve allowed issuer domains at request time, define a bean implementing
- * {@link DomainResolver}:
- *
- * <pre>{@code
- * @Bean
- * public DomainResolver domainResolver() {
- *     return context -> {
- *         String tenantId = context.getHeaders().get("x-tenant-id");
- *         return lookupDomainsForTenant(tenantId);
- *     };
- * }
- * }</pre>
- */
+/** Autoconfiguration for Auth0 authentication and JWT validation. */
 @AutoConfiguration
 @EnableConfigurationProperties(Auth0Properties.class)
 public class Auth0AutoConfiguration {
